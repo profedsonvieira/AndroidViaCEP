@@ -23,8 +23,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:hint="Digite o CEP"
-        app:hintTextColor="#757575"
-        android:layout_marginBottom="16dp">
+        android:layout_marginBottom="16dp"
+        android:minHeight="60dp"
+        android:contentDescription="Campo para digitar o CEP">  <!-- ✅ Movido para o Layout -->
 
         <com.google.android.material.textfield.TextInputEditText
             android:id="@+id/etCep"
@@ -32,7 +33,9 @@
             android:layout_height="wrap_content"
             android:inputType="number"
             android:maxLength="9"
-            android:textSize="18sp" />
+            android:textSize="18sp"
+            android:minHeight="48dp"
+            android:padding="16dp" />  <!-- ✅ Removido contentDescription -->
 
     </com.google.android.material.textfield.TextInputLayout>
 
@@ -40,13 +43,14 @@
     <Button
         android:id="@+id/btnBuscar"
         android:layout_width="match_parent"
-        android:layout_height="wrap_content"
+        android:layout_height="60dp"
         android:text="Buscar Endereço"
         android:textSize="16sp"
         android:textStyle="bold"
         android:backgroundTint="#2196F3"
         android:textColor="#FFFFFF"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Botão para buscar endereço pelo CEP" />
 
     <!-- Loading -->
     <ProgressBar
@@ -55,20 +59,21 @@
         android:layout_height="48dp"
         android:layout_gravity="center"
         android:visibility="gone"
-        android:layout_marginBottom="16dp" />
+        android:layout_marginBottom="16dp"
+        android:contentDescription="Carregando resultados" />
 
     <!-- Área de Resultado -->
     <ScrollView
         android:layout_width="match_parent"
         android:layout_height="0dp"
-        android:layout_weight="1"
-        android:background="#FFFFFF"
-        android:padding="8dp">
+        android:layout_weight="1">
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:orientation="vertical">
+            android:orientation="vertical"
+            android:background="#FFFFFF"
+            android:padding="16dp">
 
             <TextView
                 android:id="@+id/tvResultado"
@@ -77,9 +82,11 @@
                 android:text="Digite um CEP (8 dígitos) e clique em Buscar"
                 android:textSize="16sp"
                 android:textColor="#333333"
-                android:padding="16dp"
-                android:lineSpacingExtra="4dp" />
+                android:lineSpacingExtra="4dp"
+                android:padding="8dp" />
 
         </LinearLayout>
 
-    </ScrollView
+    </ScrollView>
+
+</LinearLayout>
